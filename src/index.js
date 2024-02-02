@@ -1,22 +1,25 @@
+let paris = document.querySelector("#paris");
+let ParisTime = moment.tz("Europe/Paris").format("dddd, MMMM D, yyyy h:mm a");
+let sydney = document.querySelector("#sydney");
+let sydneyTime = moment
+  .tz("Australia/Sydney")
+  .format("dddd, MMMM D, yyyy h:mm a");
+let tokyo = document.querySelector("#tokyo");
+let tokyoTime = moment.tz("Asia/Tokyo").format("dddd, MMMM D, yyyy h:mm a");
+
 function showTime(event) {
   if (event.target.value.length > 0) {
-    if (event.target.value === "") {
-      alert("💙");
+    if (event.target.value === "tokyo") {
+      alert(`It is currently ${tokyoTime} in Asia/Tokyo`);
     }
-    if (event.target.value === "red") {
-      alert("❤");
+    if (event.target.value === "sydney") {
+      alert(`It is currently ${sydneyTime} in Australia/Sydney`);
     }
-    if (event.target.value === "yellow") {
-      alert("💛");
+    if (event.target.value === "paris") {
+      alert(`It is currently ${ParisTime} in Europe/Paris`);
     }
   }
 }
 
-let colorsSelect = document.querySelector("#colors");
-colorsSelect.addEventListener("change", showHeart);
-
-let paris = document.querySelector("#paris");
-let ParisTime = moment.tz("Europe/Paris").format("dddd, MMMM D, yyyy h:mm a");
-
 let citySelect = document.querySelector("#city");
-citySelect.addEventListener("change", displayTime);
+citySelect.addEventListener("change", showTime);
